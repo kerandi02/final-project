@@ -1,0 +1,14 @@
+# Ignore node_modules for server and client
+server/node_modules/
+client/node_modules/
+
+# Env files
+server/.env
+client/.env
+
+# Logs
+logs
+*.log
+
+# Build
+dist
