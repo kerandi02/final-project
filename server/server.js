@@ -27,9 +27,15 @@ app.use('/api/reports', require('./routes/reportRoutes'));
 // ... other routes
 
 // MongoDB Connection (clean, no deprecated options)
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log('MongoDB connection error:', err));
+const mongoUri = process.env.MONGODB_URI || process.env.MONGO_URI || process.env.MONGO_URL;
+
+if (!mongoUri) {
+  console.error('Error: MongoDB connection string not found. Set `MONGODB_URI` in environment.');
+} else {
+  mongoose.connect(mongoUri)
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.error('MongoDB connection error:', err));
+}
 
 // Start server
 const PORT = process.env.PORT || 5000;
