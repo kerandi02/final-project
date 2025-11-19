@@ -7,7 +7,11 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://your-frontend.vercel.app', 'http://localhost:3000'],
+  origin: [
+    'https://your-frontend.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:5173'
+  ],
   credentials: true
 }));
 app.use(express.json());
@@ -19,7 +23,7 @@ app.get('/', (req, res) => {
 
 // Your API routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/products', require('./routes/products'));
+app.use('/api/reports', require('./routes/reportRoutes'));
 // ... other routes
 
 // MongoDB Connection (clean, no deprecated options)
