@@ -6,7 +6,7 @@ import { ReportProvider } from "./context/ReportContext";
 import Dashboard from "./pages/Dashboard";
 import MapPage from "./pages/MapPage";
 import ReportDetails from "./pages/ReportDetails";
-import Login from "./pages/Login";
+import Login from "./pages/login";
 import Register from "./pages/Register";
 
 
